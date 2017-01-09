@@ -1,17 +1,17 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Usuario extends CI_Controller
+class Usuario extends CI_Controller//nombre en primera letra en mayuscula
 {
 
     public function __construct()
     {
 
         parent::__construct();
-        $this->load->model('usuario_model');
+        $this->load->model('usuario_model');//cargamos el modelo todo en minuscula
     }
 
-    public function index()//nombre de la funcion igual a la vpopmail_set_user_quota(user, domain, quota)
+    public function index()//nombre de la funcion igual al de la vista
     {
         $data['contenido'] = "usuario/index"; //envio contenido a la plantilla
         $data['selPerfil'] = $this->usuario_model->selPerfil(); //almaceno en la variable selperfil
@@ -59,13 +59,13 @@ class Usuario extends CI_Controller
     public function update(){
          $datos = $this->input->post();
         if (isset($datos)) {
-            $txtUsuid      = $datos['txtUsuid'];
+            $txtUsuid      = $datos['txtUsuid'];//tienen que tener el mismo nombre de los imput "name"
             $txtPerid     = $datos['txtPerid'];
             $txtNombres   = $datos['txtnombres'];
             $txtApellidos = $datos['textApellidos'];
             $txtCorreo    = $datos['textCorreo'];
             $txtTelefono  = $datos['textTelefono'];
-            $this->usuario_model->updateUsuario($txtUsuid ,$txtPerid, $txtNombres, $txtApellidos, $txtCorreo, $txtTelefono);
+            $this->usuario_model->updateUsuario($txtUsuid ,$txtPerid, $txtNombres, $txtApellidos, $txtCorreo, $txtTelefono);//llama al metodo en el modelo
 
     }
 }

@@ -8,17 +8,17 @@ class Usuario_model extends CI_Model
     {
 
         parent::__construct();
-        $this->load->database();
+        $this->load->database();//carga base de datos
     }
-    public function selPerfil()
+    public function selPerfil()//trae los perfiles de la bd
     {
         $query = $this->db->query("Select * from perfil");
         return $query->result();
     }
 
     public function insertUsuario($idper, $nombres, $apellidos, $correo, $telefono)
-    {
-        $arrayDatos = array(
+    {//inserta los usuarios
+        $arrayDatos = array(//primer campo nombre de las columnas
             'per_id'        => $idper,
             'usu_nombres'   => $nombres,
             'usu_apellidos' => $apellidos,
@@ -31,20 +31,20 @@ class Usuario_model extends CI_Model
     public function listUsuario()
     {
         //inner join para traer nombres desde la otra tabla
-        $query = $this->db->query("Select * from usuario u inner join perfil p on u.per_id = p.per_id");
+        $query = $this->db->query("Select * from usuario u inner join perfil p on u.per_id = p.per_id"); //lista el usuario a partir de su id
         return $query->result();
     }
 
     public function deleteUsuario($id){
-        $this->db->where('usu_id', $id);
-        $this->db->delete('usuario');
+        $this->db->where('usu_id', $id);//campo id y el que trae por parametro
+        $this->db->delete('usuario');//nombre de la tabla
       
 
     }
 
     public function editUsuario($id){
 
-        $query = $this->db->query("select * from usuario u inner join perfil p on u.per_id = p.per_id where u.usu_id = $id");
+        $query = $this->db->query("select * from usuario u inner join perfil p on u.per_id = p.per_id where u.usu_id = $id");//compara el id
         return $query->result();
     }
 

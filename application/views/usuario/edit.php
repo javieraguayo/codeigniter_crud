@@ -1,5 +1,5 @@
  <form method="POST" action="<?php echo base_url('usuario/update') ?>">
-
+<!-- llama al metodo del controlador-->
  <?php foreach ($datosUsuario as $value) {?>
  	
 	<input type="hidden" name="txtUsuid" value="<?php echo $value->usu_id; ?>">
@@ -20,7 +20,7 @@
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Nombres</label>
-    <input type="text" name="txtnombres" class="form-control" id="exampleInputEmail1" value="<?php echo $value->usu_nombres; ?>">
+    <input type="text" name="txtnombres" class="form-control" id="exampleInputEmail1" value="<?php echo $value->usu_nombres; ?>"><!-- trae los datos para editarlos value-->
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Apellidos</label>

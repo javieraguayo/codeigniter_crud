@@ -23,7 +23,7 @@
 
 	<!-- aqui va el contenido de las vistas-->
 	<div class="col-md-10">
-	<?php
+	<?php //necesario para que se vea las vistas
 $this->load->view($contenido);
 
 ?>

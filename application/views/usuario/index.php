@@ -14,7 +14,7 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
-    <table class="table table-hover">
+    <table class="table table-hover"><!-- estilo para que se vea correcta la lista-->
       <thead>
         <th>ID</th>
         <th>Perfil</th>
@@ -25,7 +25,7 @@
         <th>Acciones</th>
       </thead>
       </tbody>
-        <?php foreach ($listUsuario as $value) {?>
+        <?php foreach ($listUsuario as $value) {?><!-- necesario para listar recorre los datos con un for-->
           <tr>
             <td><?php echo $value->usu_id; ?></td>
              <td><?php echo $value->per_nombre; ?></td>
@@ -33,7 +33,7 @@
              <td><?php echo $value->usu_apellidos; ?></td>
              <td><?php echo $value->usu_correo; ?></td>
              <td><?php echo $value->usu_telefono; ?></td>
-             <td><!-- funcion editar y eliminar en el controlador -->
+             <td><!-- funcion editar y eliminar en el controlador concatena el id para usarlo-->
                <a href="<?php echo base_url('usuario/delete')."/".$value->usu_id; ?>" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a>
                 <a href="<?php echo base_url('usuario/edit')."/".$value->usu_id; ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
              </td>
@@ -48,13 +48,13 @@
   <div class="form-group">
     <label for="exampleInputEmail1">Perfil</label>
    <select name=txtIdper class="form-control">
-      <?php foreach ($selPerfil as $value) {?>
+      <?php foreach ($selPerfil as $value) {?><!-- se usar para traer el nombre del rol desde la bd-->
        <option value="<?php echo $value->per_id ?>"><?php echo $value->per_nombre; ?></option>
       <?php }?>
 
    </select>
   </div>
-  <div class="form-group">
+  <div class="form-group"><!-- name necesario pasa usar los input-->
     <label for="exampleInputEmail1">Nombres</label>
     <input type="text" name="txtnombres" class="form-control" id="exampleInputEmail1" placeholder="nombres ">
   </div>

@@ -71,7 +71,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | the query builder class.
  */
 $active_group  = 'default';
-$query_builder = true;
+$query_builder = true;//editado
 
 $db['default'] = array(
     'dsn'          => '',
