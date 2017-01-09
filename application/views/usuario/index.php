@@ -2,8 +2,49 @@
 
 <h1>Formulario de registro </h1>
 
+<div>
 
-<form method="POST" action="<?php echo base_url('usuario/insert') ?>">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Listar</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Registrar</a></li>
+
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+    <table class="table table-hover">
+      <thead>
+        <th>ID</th>
+        <th>Perfil</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Correo</th>
+        <th>Telefono</th>
+        <th>Acciones</th>
+      </thead>
+      </tbody>
+        <?php foreach ($listUsuario as $value) {?>
+          <tr>
+            <td><?php echo $value->usu_id; ?></td>
+             <td><?php echo $value->per_nombre; ?></td>
+             <td><?php echo $value->usu_nombres; ?></td>
+             <td><?php echo $value->usu_apellidos; ?></td>
+             <td><?php echo $value->usu_correo; ?></td>
+             <td><?php echo $value->usu_telefono; ?></td>
+             <td><!-- funcion editar y eliminar en el controlador -->
+               <a href="<?php echo base_url('usuario/delete')."/".$value->usu_id; ?>" title="Eliminar"><span class="glyphicon glyphicon-trash"></span></a>
+                <a href="<?php echo base_url('usuario/edit')."/".$value->usu_id; ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+             </td>
+          </tr>
+       <?php }?>
+      </tbody>
+    </table>
+
+    </div>
+    <div role="tabpanel" class="tab-pane" id="profile">
+      <form method="POST" action="<?php echo base_url('usuario/insert') ?>">
   <div class="form-group">
     <label for="exampleInputEmail1">Perfil</label>
    <select name=txtIdper class="form-control">
@@ -33,3 +74,11 @@
 
   <button type="submit" class="btn btn-default">Registrar</button>
 </form>
+
+
+    </div>
+
+  </div>
+
+</div>
+
